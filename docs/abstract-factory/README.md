@@ -11,17 +11,17 @@
 
 1. Our use case is to produce electricity bills based on plans and their region.
 2. There are two area/regions : Urban and Metro.
-3. In Urban area, there is **free limit on units**. So the electricity plan will work differently in comparison with metro electricity plan.
-4. You can see that the Electricity plan `interface` has six implementations (3 Metro and 3 Urban) :  MetroCommercialPlan, MetroDomesticPlan, MetroInstitutionalPlan, UrbanCommercialPlan, UrbanDomesticPlan, and UrbanInstitutionalPlan.
+3. In Urban area, there is **free limit on units**. So the urban electricity plans will work differently in comparison with metro electricity plans.
+4. You can see that the ElectricityPlan `interface` has six implementations (3 Metro and 3 Urban) :  MetroCommercialPlan, MetroDomesticPlan, MetroInstitutionalPlan, UrbanCommercialPlan, UrbanDomesticPlan, and UrbanInstitutionalPlan.
 5. These plans will take number of units as an input and will produce bills.
 6. Now we can create objects of these concrete plans directly with `new` keyword. But the complexity of the creation of these plans will be increased with time which make codes hard to maintain it. So we need to detach the creational code of these plans.
-7. The concrete implementations(`MetroElectricityPlanFactory` and `UrbanElectricityPlanFactory` classes) of `ElectricityPlanFactory` abstract class does the creational job. We just need to provide plan type (**PlanType** enum) and region type(**RegionTypes** enum). Now We can create any kind of plan through ElectricityPlanFactory abstract class at anywhere without worrying about how these plans are created.
+7. The concrete implementations(`MetroElectricityPlanFactory` and `UrbanElectricityPlanFactory` classes) of `ElectricityPlanFactory` abstract class does the creational job. We just need to provide region type(**RegionTypes** enum) in `FactoryProducer` class, and it will provide a ElectricityPlanFactory object based on the provided region. This ElectricityPlanFactory object will provide the ElectricityPlan object based on the provided plan type. Now, we can create any kind of plan through FactoryProducer and ElectricityPlanFactory classes at anywhere without worrying about how these plans are created.
 8. Adding new ElectricityPlan in specific region : We can just implement the ElectricityPlan and create new Plan and add its creation logic in the respective implementation of `ElectricityPlanFactory` abstract Class based on region.
 9. Adding new Region and their plans :
-    * We can just implement the ElectricityPlan for new plans, 
-    * create new concrete implementation `ElectricityPlanFactory` abstract Class, and add creation logics of plan in that newly created concrete implementation. 
-    * Add the new concrete implementation class configuration in `ElectricityPlanFactory` abstract Class.
-10. Changes in creation logic in existing plans : If the creational logic of any plan changes in the future, we just need to update creation code of in their respective region specific concrete implementation of `ElectricityPlanFactory` abstract class.
+    * We can just implement the ElectricityPlan for new plans. 
+    * Create new concrete implementation `ElectricityPlanFactory` abstract Class, and add creation logics of plan in that newly created concrete implementation. 
+    * Add the new concrete implementation class configuration in `FactoryProducer` Class.
+10. Changes in creation logic in existing plans : If the creational logic of any plan changes in the future, we just need to update creation code of in their respective region specific concrete implementation of `ElectricityPlanFactory` abstract class. 
 
 
 ## Pros
