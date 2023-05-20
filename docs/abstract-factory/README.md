@@ -1,32 +1,43 @@
 ## Abstract Factory Method
 1. Type : **Creational Design pattern**
-2. Definition : A factory method is a creation design pattern that provides an interface that creates and provide complex objects. Instead of creating these complex objects with `new` keyword, the interface (Factory class) will be used.
+2. Definition : Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
 
 ## Brief
-* The Abstracts Factory Method design pattern is a creational design pattern that provides an interface for creating objects, but allows subclasses to decide which class to instantiate. It is also known as the **Virtual Constructor pattern**.
-* The main idea behind the Factory Method pattern is to encapsulate object creation in a separate method or factory class, rather than directly instantiating objects using the `new` keyword. This method or class, known as the factory method, defines an interface or abstract class for creating objects, but the concrete implementation is deferred to subclasses.
+* The main idea behind the abstract factory Method pattern is to encapsulate object creation in a separate method or factory class, rather than directly instantiating objects using the `new` keyword. This method or class, known as the factory method, defines an interface or abstract class for creating objects, but the concrete implementation is deferred to subclasses.
 
 ## Our use case
 
 ![Electricity plan](https://github.com/sanjaymantati/design-patterns/blob/master/docs/abstract-factory/ElectricityPlan.png?raw=true)
 
-1. Our use case is to produce electricity bills based on plans.
-2. Now There are three electricity plans : Commercial, Domestic, and Institutional. Each have different rate/unit values.
-3. These plans will take number of units as an input and will produce bills.
-4. You can see that the Electricity plan `interface` has three implementations DomesticPlan, InstitutionalPlan, and CommercialPlan.
-5. Now we can create objects of these concrete plans directly with `new` keyword. But the complexity of the creation of these plans will be increased with time which make codes hard to maintain it. So we need to detach the creational code of these plans.
-6. The `ElectricityPlanFactor` Class does the creational job for all plans. We just need to provide plan type (**PlanType** enum). Now We can create any kind of plan through ElectricityPlanFactor class at anywhere without worrying about how these plans are created. Note
-7. Adding new ElectricityPlan : We can just implement the ElectricityPlan and create new Plan and add its creation logic in the `ElectricityPlanFactor` Class.
-8. Changes in creation logic in existing plans : If the creational logic of any plan changes in the future, we just need to update creation code of the plan in ElectricityPlanFactor class.
+1. Our use case is to produce electricity bills based on plans and their region.
+2. There are two area/regions : Urban and Metro.
+3. In Urban area, there is **free limit on units**. So the electricity plan will work differently in comparison with metro electricity plan.
+4. You can see that the Electricity plan `interface` has six implementations (3 Metro and 3 Urban) :  MetroCommercialPlan, MetroDomesticPlan, MetroInstitutionalPlan, UrbanCommercialPlan, UrbanDomesticPlan, and UrbanInstitutionalPlan.
+5. These plans will take number of units as an input and will produce bills.
+6. Now we can create objects of these concrete plans directly with `new` keyword. But the complexity of the creation of these plans will be increased with time which make codes hard to maintain it. So we need to detach the creational code of these plans.
+7. The concrete implementations(`MetroElectricityPlanFactory` and `UrbanElectricityPlanFactory` classes) of `ElectricityPlanFactory` abstract class does the creational job. We just need to provide plan type (**PlanType** enum) and region type(**RegionTypes** enum). Now We can create any kind of plan through ElectricityPlanFactory abstract class at anywhere without worrying about how these plans are created.
+8. Adding new ElectricityPlan in specific region : We can just implement the ElectricityPlan and create new Plan and add its creation logic in the respective implementation of `ElectricityPlanFactory` abstract Class based on region.
+9. Adding new Region and their plans :
+    * We can just implement the ElectricityPlan for new plans, 
+    * create new concrete implementation `ElectricityPlanFactory` abstract Class, and add creation logics of plan in that newly created concrete implementation. 
+    * Add the new concrete implementation class configuration in `ElectricityPlanFactory` abstract Class.
+10. Changes in creation logic in existing plans : If the creational logic of any plan changes in the future, we just need to update creation code of in their respective region specific concrete implementation of `ElectricityPlanFactory` abstract class.
 
 
 ## Pros
-* Encapsulation of object creation: The creation logic is encapsulated within the factory method or factory class, making it easy to modify or extend the creation process without affecting client code.
-* Subclass flexibility: Subclasses can override the factory method to provide specialized implementation or return different types of products, allowing for variations in object creation.
-* Dependency inversion: Client code depends on the abstract creator interface or class, rather than directly depending on concrete classes (ElectricityPlan), promoting decoupling and flexibility. The Factory Method pattern is commonly used in scenarios where object creation requires complex logic, such as when creating objects based on configuration settings, dynamically loading classes, or supporting multiple  variations.
+* Abstraction and Encapsulation: The abstract design pattern promotes abstraction by defining a common interface or abstract class for a family of related objects. It encapsulates the implementation details within concrete classes, allowing the client code to interact with the objects through a unified interface.
+* Flexibility and Extensibility: The pattern allows for easy addition of new classes to the family without modifying the client code. You can introduce new concrete classes that adhere to the common interface or abstract class, providing flexibility and extensibility to the codebase.
+* Loose Coupling: The abstract design pattern decouples the client code from the implementation details of the concrete classes. The client code only depends on the common interface or abstract class, reducing dependencies and promoting loose coupling. This makes the codebase more maintainable and facilitates easier changes or updates in the future.
+* Code Reusability: By defining a common interface or abstract class, the abstract design pattern promotes code reusability. Multiple concrete classes can implement the same interface or extend the same abstract class, enabling the reuse of code logic and reducing duplication.
+* Follows Single Responsibility Principle.
+* Follows Open/Closed Principle.
+
 
 ## Cons
-* The code may become more complicated since you need to introduce a lot of new subclasses to implement the pattern. The best case scenario is when you’re introducing the pattern into an existing hierarchy of creator classes.
+* Increased Complexity: Introducing the abstract design pattern adds another layer of abstraction and indirection, which can increase the complexity of the codebase. It may require a deeper understanding of the pattern and its implementation for developers working on the code.
+* Potential Performance Overhead: The abstract design pattern may introduce some performance overhead due to the use of abstraction and the need for dynamic binding during runtime. However, in most cases, the impact on performance is negligible unless the pattern is misused or applied inappropriately.
+* Limited Control over Concrete Classes: Since the abstract design pattern focuses on creating objects through a common interface or abstract class, it limits direct control over the specific concrete classes. This can be a disadvantage if you require fine-grained control over the individual objects or need to access specific methods or properties unique to certain concrete classes.
+* Increased Indirection: The pattern introduces an extra layer of indirection between the client code and the concrete classes. This can make the code harder to follow and debug, especially for developers who are not familiar with the pattern or the specific implementation.
 
 
 ## References

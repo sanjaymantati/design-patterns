@@ -1,6 +1,6 @@
 package com.designpatterns.abstractfactory;
 
-import com.designpatterns.abstractfactory.enums.ElectricityPlanFactoryType;
+import com.designpatterns.abstractfactory.enums.RegionTypes;
 import com.designpatterns.abstractfactory.enums.PlanType;
 import com.designpatterns.abstractfactory.plans.MetroCommercialPlan;
 import com.designpatterns.abstractfactory.plans.MetroDomesticPlan;
@@ -8,7 +8,7 @@ import com.designpatterns.abstractfactory.plans.MetroInstitutionalPlan;
 
 public final class MetroElectricityPlanFactory extends ElectricityPlanFactory {
 
-    public static final ElectricityPlanFactoryType planFactoryType = ElectricityPlanFactoryType.METRO;
+    public static final RegionTypes planFactoryType = RegionTypes.METRO;
 
 
     @Override

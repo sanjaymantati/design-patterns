@@ -1,6 +1,6 @@
 package com.designpatterns.abstractfactory.enums;
 
-public enum ElectricityPlanFactoryType {
+public enum RegionTypes {
 
     URBAN,
     METRO;

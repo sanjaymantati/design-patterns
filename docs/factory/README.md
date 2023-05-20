@@ -15,9 +15,9 @@
 3. These plans will take number of units as an input and will produce bills.
 4. You can see that the Electricity plan `interface` has three implementations DomesticPlan, InstitutionalPlan, and CommercialPlan.
 5. Now we can create objects of these concrete plans directly with `new` keyword. But the complexity of the creation of these plans will be increased with time which make codes hard to maintain it. So we need to detach the creational code of these plans.
-6. The `ElectricityPlanFactor` Class does the creational job for all plans. We just need to provide plan type (**PlanType** enum). Now We can create any kind of plan through ElectricityPlanFactor class at anywhere without worrying about how these plans are created. Note 
-7. Adding new ElectricityPlan : We can just implement the ElectricityPlan and create new Plan and add its creation logic in the `ElectricityPlanFactor` Class.
-8. Changes in creation logic in existing plans : If the creational logic of any plan changes in the future, we just need to update creation code of the plan in ElectricityPlanFactor class.
+6. The `ElectricityPlanFactory` Class does the creational job for all plans. We just need to provide plan type (**PlanType** enum). Now We can create any kind of plan through ElectricityPlanFactor class at anywhere without worrying about how these plans are created. 
+7. Adding new ElectricityPlan : We can just implement the ElectricityPlan and create new Plan and add its creation logic in the `ElectricityPlanFactory` Class.
+8. Changes in creation logic in existing plans : If the creational logic of any plan changes in the future, we just need to update creation code of the plan in ElectricityPlanFactory class.
 
 
 ## Pros

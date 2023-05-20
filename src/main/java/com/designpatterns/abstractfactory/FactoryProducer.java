@@ -1,11 +1,11 @@
 package com.designpatterns.abstractfactory;
 
-import com.designpatterns.abstractfactory.enums.ElectricityPlanFactoryType;
+import com.designpatterns.abstractfactory.enums.RegionTypes;
 
 public class FactoryProducer {
 
 
-    public static ElectricityPlanFactory getElectricityPlanFactory(ElectricityPlanFactoryType planFactoryType){
+    public static ElectricityPlanFactory getElectricityPlanFactory(RegionTypes planFactoryType){
 
         switch (planFactoryType){
             case METRO:
