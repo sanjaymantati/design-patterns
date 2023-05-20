@@ -8,7 +8,7 @@
 
 ## Our use case
 
-![Electricity plan](https://github.com/sanjaymantati/design-patterns/blob/master/demo/src/docs/factory/ElectricityPlan.png?raw=true)
+![Electricity plan](https://github.com/sanjaymantati/design-patterns/blob/master/src/docs/factory/ElectricityPlan.png?raw=true)
 
 1. Our use case is to produce electricity bills based on plans.
 2. Now There are three electricity plans : Commercial, Domestic, and Institutional. Each have different rate/unit values.

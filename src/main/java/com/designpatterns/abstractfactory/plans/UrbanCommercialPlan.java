@@ -3,10 +3,10 @@ package com.designpatterns.abstractfactory.plans;
 import com.designpatterns.abstractfactory.UrbanElectricityPlan;
 import com.designpatterns.abstractfactory.enums.PlanType;
 
-public final  class UrbanInstitutionalPlan extends UrbanElectricityPlan {
-    private final double ratePerUnit = 4;
-    private final int freeUnits = 150;
-    private final PlanType planType = PlanType.INSTITUTIONAL;
+public final class UrbanCommercialPlan implements UrbanElectricityPlan {
+    private final double ratePerUnit = 5;
+    private final int freeUnits = 70;
+    private  final PlanType planType = PlanType.COMMERERCIAL;
 
     public PlanType getPlanType() {
         return planType;
@@ -15,11 +15,6 @@ public final  class UrbanInstitutionalPlan extends UrbanElectricityPlan {
     @Override
     public double getRate() {
         return ratePerUnit;
-    }
-
-    @Override
-    protected int getFreeUnits() {
-        return freeUnits;
     }
 
     @Override
@@ -35,4 +30,9 @@ public final  class UrbanInstitutionalPlan extends UrbanElectricityPlan {
         System.out.printf("Amount : %.2f Rs%n", amount);
     }
 
+
+    @Override
+    public int getFreeUnits() {
+        return freeUnits;
+    }
 }

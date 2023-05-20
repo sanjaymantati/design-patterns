@@ -3,7 +3,7 @@ package com.designpatterns.abstractfactory.plans;
 import com.designpatterns.abstractfactory.UrbanElectricityPlan;
 import com.designpatterns.abstractfactory.enums.PlanType;
 
-public final class UrbanDomesticPlan extends UrbanElectricityPlan {
+public final class UrbanDomesticPlan implements UrbanElectricityPlan {
     private final double ratePerUnit = 2.5;
     private  final PlanType planType = PlanType.DOMESTIC;
 
@@ -19,7 +19,7 @@ public final class UrbanDomesticPlan extends UrbanElectricityPlan {
     }
 
     @Override
-    protected int getFreeUnits() {
+    public int getFreeUnits() {
         return freeUnits;
     }
     @Override

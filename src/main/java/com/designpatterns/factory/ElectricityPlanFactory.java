@@ -11,7 +11,7 @@ public final class ElectricityPlanFactory {
         switch (planType){
             case DOMESTIC:
                 return new DomesticPlan();
-            case COMMERERCIAL:
+            case COMMERCIAL:
                 return new CommercialPlan();
             case INSTITUTIONAL:
                 return new InstitutionalPlan();

@@ -5,7 +5,7 @@ import com.designpatterns.factory.enums.PlanType;
 
 public final class CommercialPlan implements ElectricityPlan {
     protected double ratePerUnit = 5;
-    private  final PlanType planType = PlanType.COMMERERCIAL;
+    private  final PlanType planType = PlanType.COMMERCIAL;
 
     public  PlanType getPlanType() {
         return planType;
