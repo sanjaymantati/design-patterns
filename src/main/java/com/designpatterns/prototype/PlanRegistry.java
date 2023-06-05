@@ -7,13 +7,10 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public final class PlanRegistry {
 
-    private static final PlanRegistry registry = null;
     private static final Map<PlanType, ElectricityPlan> planMap = new ConcurrentHashMap<>();
 
-    private PlanRegistry(){
-
+    private PlanRegistry() {
     }
-
 
     static {
         for (PlanType type : PlanType.values()) {
@@ -21,7 +18,7 @@ public final class PlanRegistry {
         }
     }
 
-    public static ElectricityPlan getPlan(PlanType type){
+    public static ElectricityPlan getPlan(PlanType type) {
         return planMap.get(type).clone();
     }
 }

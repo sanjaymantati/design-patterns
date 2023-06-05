@@ -8,6 +8,7 @@ public class Driver {
 
         ElectricityPlan plan = PlanRegistry.getPlan(PlanType.INSTITUTIONAL);
         plan.calculateBill(200);
+
         ElectricityPlan clonedPlan = plan.clone();
         clonedPlan.calculateBill(500);
 
