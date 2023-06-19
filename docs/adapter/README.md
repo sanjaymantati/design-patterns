@@ -59,7 +59,7 @@ public class Driver {
 }
 ```
 
-### Issue
+### The issue
 1. Now our team has decided make token based authentication as primary authentication and also support the legacy `Authenticator` interface based authentication mechanism.
 2. For new code, we can use `AdvanceAuthenticator` interface and it's implementations. But the existing code is dependent on `Authenticator` interface and these code will break. Also, these two interfaces are heterogeneous due to difference in the signature of `login` method.
 

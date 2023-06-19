@@ -10,3 +10,6 @@
 
 ## Structural design patterns
 1. ![Adapter design pattern](https://github.com/sanjaymantati/design-patterns/blob/master/docs/adapter/README.md)
+2. ![Bridge design pattern](https://github.com/sanjaymantati/design-patterns/blob/master/docs/bridge/README.md)
+3. ![Composite design pattern](https://github.com/sanjaymantati/design-patterns/blob/master/docs/composite/README.md)
+4. ![Decorator design pattern](https://github.com/sanjaymantati/design-patterns/blob/master/docs/decorator/README.md)
